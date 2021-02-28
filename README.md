@@ -38,6 +38,6 @@ for (let x=0; x < 48; ++x) {
 
 * https://naif.jpl.nasa.gov/naif/toolkit_C.html
 * https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/index.html
-* http://www.stjarnhimlen.se/comp/ppcomp.html#12b%5D(http://www.stjarnhimlen.se/comp/ppcomp.html
+* http://www.stjarnhimlen.se/comp/ppcomp.html
 * https://labod.co/posts/finding_positions_of_planets_using_spiceypy
 
