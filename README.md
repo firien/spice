@@ -8,7 +8,7 @@ https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/index.html
 
 Install will fetch cspice toolkit from naif.jpl.nasa.gov and compile. This takes ~6 minutes on a Raspberry Pi 4. It would be nice if this were a git submodule, but cspice is not officially offered as a git repository.
 
-Note: The npm scripts rely on a linx environment.
+Note: The npm scripts rely on a linux environment.
 
 Afterward you need to download generic "kernels" data. These are occassionally updated, as of Feb 2021, the generic kernels are around ~110MB. There are more accurate versions avilable that grow to several GBs. Additional data for comets and asteroids can be [downloaded there too](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/).
 
