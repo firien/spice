@@ -34,7 +34,7 @@ const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "
 spice.getPosition = (body, time=new Date()) => {
   let target = getTarget(body);
   // "2021 FEB 21 00:00"
-  let dt = `${time.getFullYear()} ${months[time.getMonth()]} ${time.getDate()} ${time.getUTCHours()}:${time.getUTCMinutes()}`
+  let dt = `${time.getUTCFullYear()} ${months[time.getUTCMonth()]} ${time.getUTCDate()} ${time.getUTCHours()}:${time.getUTCMinutes()}`
   // console.log(dt)
   return spice.spkpos(dt, target);
 }
