@@ -10,7 +10,7 @@ Install will fetch cspice toolkit from naif.jpl.nasa.gov and compile. This takes
 
 Note: The npm scripts rely on a linux environment.
 
-Afterward you need to download generic "kernels" data. These are occassionally updated, as of Feb 2021, the generic kernels are around ~110MB. There are more accurate versions avilable that grow to several GBs. Additional data for comets and asteroids can be [downloaded there too](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/).
+Afterward you need to download generic "kernels" data. These are occassionally updated, as of Feb 2021, the generic kernels are around ~110MB. There are more accurate versions available that grow to several GBs. Additional data for comets and asteroids can be [downloaded there too](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/).
 
 ```sh
 wget -P data https://naif.jpl.nasa.gov/pub/naif/generic_kernels/lsk/naif0012.tls
