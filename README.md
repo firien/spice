@@ -1,8 +1,5 @@
 # spice
-Find planetary positions using NAIF SPICE Toolkit
-
-https://naif.jpl.nasa.gov/naif/toolkit_C.html
-https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/index.html
+Find planetary positions using [NAIF SPICE Toolkit](https://naif.jpl.nasa.gov/naif/toolkit_C.html)
 
 > npm install https://github.com/firien/spice.git
 
@@ -35,3 +32,12 @@ for (let x=0; x < 48; ++x) {
   console.log([time, azm, alt].join("\t"));
 }
 ```
+
+
+# Credits / References
+
+* https://naif.jpl.nasa.gov/naif/toolkit_C.html
+* https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/cspice/index.html
+* http://www.stjarnhimlen.se/comp/ppcomp.html#12b%5D(http://www.stjarnhimlen.se/comp/ppcomp.html
+* https://labod.co/posts/finding_positions_of_planets_using_spiceypy
+
