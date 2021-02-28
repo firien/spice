@@ -7,7 +7,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "wget https://naif.jpl.nasa.gov/pub/naif/toolkit//C/PC_Linux_GCC_64bit/packages/cspice.tar.Z && gzip -d cspice.tar.Z && tar xfv cspice.tar"
+    "preinstall": "wget https://naif.jpl.nasa.gov/pub/naif/toolkit//C/PC_Linux_GCC_64bit/packages/cspice.tar.Z && gzip -d cspice.tar.Z && tar xf cspice.tar"
   },
   "repository": {
     "type": "git",
