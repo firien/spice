@@ -21,7 +21,9 @@ spice.loadKernels = (...kernels) => {
   }
 }
 
-const getTarget = (name) => {
+// if planet is not found in loaded kernels
+// it will try and find planets barycenter
+export const getTarget = (name) => {
   let target = bodies.find(b => b === name.toUpperCase())
   if (!target) {
     target = bodies.find(b => b === `${name.toUpperCase()} BARYCENTER`)
@@ -31,8 +33,7 @@ const getTarget = (name) => {
 
 const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
-spice.getPosition = (body, time=new Date()) => {
-  let target = getTarget(body);
+spice.getPosition = (target, time=new Date()) => {
   // "2021 FEB 21 00:00"
   let dt = `${time.getUTCFullYear()} ${months[time.getUTCMonth()]} ${time.getUTCDate()} ${time.getUTCHours()}:${time.getUTCMinutes()}`
   // console.log(dt)
@@ -62,7 +63,8 @@ export const degreeToArc = (rad, hour=false) => {
 
 // https://labod.co/posts/finding_positions_of_planets_using_spiceypy
 // http://www.stjarnhimlen.se/comp/ppcomp.html#12b%5D(http://www.stjarnhimlen.se/comp/ppcomp.html
-export const azAlt = (ra, dec, time, lat, lon) => {
+export const azmAlt = (ra, dec, time, coord) => {
+  let { lat, lon } = coord;
   let lst = getLST(time, lon);
   let ha = lst - toDegree(ra) / 15;
   ha = toRadian(ha * 15);
@@ -108,6 +110,12 @@ const getLST = (time, lon) => {
   let GMST0 = normalize(Ls + 180) / 15;//hours
   let lst = GMST0 + UT + lon / 15;
   return lst
+}
+
+// phase angle of target, illuminated by SUN, observed from earth
+spice.getPhase = (target, time=new Date()) => {
+  let dt = `${time.getUTCFullYear()} ${months[time.getUTCMonth()]} ${time.getUTCDate()} ${time.getUTCHours()}:${time.getUTCMinutes()}`
+  return spice.phaseq(dt, target);
 }
 
 export default spice;
