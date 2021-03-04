@@ -16,7 +16,7 @@ wget -P data https://naif.jpl.nasa.gov/pub/naif/generic_kernels/pck/pck00010.tpc
 ```
 
 ```js
-import spice, { azmAlt } from 'spice';
+import spice, { azmAlt, getTarget } from 'spice';
 
 spice.loadKernels("./data/naif0012.tls", "./data/de440.bsp", "./data/pck00010.tpc");
 
@@ -26,10 +26,10 @@ let time = new Date();
 time.setHours(0);
 time.setMinutes(0);
 time.setSeconds(0);
-
+let moon = getTarget('moon');
 for (let x=0; x < 48; ++x) {
   time.setHours(time.getHours() + 1);
-  let {ra, dec} = spice.getPosition('moon', time);
+  let {ra, dec} = spice.getPosition(moon, time);
   let {azm, alt} = azmAlt(ra, dec, time, coord);
   console.log([time, azm, alt].join("\t"));
 }
