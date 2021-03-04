@@ -16,19 +16,21 @@ wget -P data https://naif.jpl.nasa.gov/pub/naif/generic_kernels/pck/pck00010.tpc
 ```
 
 ```js
-import spice, { azAlt } from 'spice';
+import spice, { azmAlt } from 'spice';
 
 spice.loadKernels("./data/naif0012.tls", "./data/de440.bsp", "./data/pck00010.tpc");
 
-// moon position at London
+// moon position at Stonehedge
+let coord = { lat: 51.178809, lon: -1.826216};
 let time = new Date();
 time.setHours(0);
 time.setMinutes(0);
 time.setSeconds(0);
+
 for (let x=0; x < 48; ++x) {
   time.setHours(time.getHours() + 1);
   let {ra, dec} = spice.getPosition('moon', time);
-  let {azm, alt} = azAlt(ra, dec, time, 51.496751, -0.111716);
+  let {azm, alt} = azmAlt(ra, dec, time, coord);
   console.log([time, azm, alt].join("\t"));
 }
 ```
